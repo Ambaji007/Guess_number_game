@@ -19,14 +19,18 @@ document.querySelector('.guess').value  = 552;
 
 let score = 25;
 
+
 //taking random number and we changed to round number like 3.1111 to 3
 const secreateNumber = Math.trunc(Math.random() * 50)+1;
 
-const displayMessage = function(message) {
-  document.querySelector('.message').textContent =message;
+
+const displayMessage = function(message){
+    document.querySelector('.message').textContent =message 
 }
 
-
+const displayHighScore = function(highscore){
+    document.querySelector(".highscore").textContent = score
+}
 
 
 // First argument is known as Event Lisnter **
@@ -36,14 +40,18 @@ document.querySelector('.check').addEventListener('click', function () {
   console.log(typeof  guess);
 //   console.log( guess);
 
+
+
 //when there is no input 
 if(!guess){
-    displayMessage( "Guess the right num...");
+    // document.querySelector('.message').textContent = "Guess the right number..."
+    displayMessage('Guess the right number...')
 
 }
 //when  player wins...
 else if (guess === secreateNumber){
-    displayMessage("Give me a party 🎉🎉🎉🎉🎉🎉🎂🎂") ;
+    // document.querySelector('.message').textContent = "Give me a party 🎉🎉🎉🎉🎉🎉🎂🎂";
+    displayMessage("Give me a party 🎉🎉🎉🎉🎉🎉🎂🎂");
 
     document.querySelector('.number').textContent = secreateNumber;
 
@@ -51,26 +59,30 @@ else if (guess === secreateNumber){
     document.querySelector('body').style.backgroundColor="#60b347";
     document.querySelector('.number').style.width = '25rem';
 
-    document.querySelector('.highscore').textContent = score
+    displayHighScore (score)
+    // document.querySelector('.highscore').textContent = score
 
 }
+//when you guess Wrong number
 
-//when guess is Wrong
-  else if(guess !== secreateNumber){
-      if(score >0){
-
-        //We use ternery opration
-        displayMessage(guess > secreateNumber ?  "TOO High📈📈📈📈" : 'Too Low📉📉📉);
+//this method is refactoring ...This Arranging code in good manner....and replace duplicate code with good code..
+else if(guess !== secreateNumber){
+    if(score >0){
+        // Here we use ternery opration
+        displayMessage( guess >secreateNumber ?  "TOO High📈📈📈📈": 'Too Low📉📉📉📉')
+        
+        // document.querySelector('.message').textContent= guess >secreateNumber?  "TOO High📈📈📈📈": 'Too Low📉📉📉📉';
         score--
         document.querySelector('.score').textContent =  score
     }else {
-        displayMessage("You Loose the Game Try Again👍👍👍");
+        displayMessage('"You Loose the Game Try Again👍👍👍";')
+        // document.querySelector('.message').textContent=  "You Loose the Game Try Again👍👍👍";
+       
         document.querySelector('.score').textContent =  0
     }
-  }
-  
 
-  
+}
+
 //when guess is too high
 // else if(guess > secreateNumber){
 
@@ -108,7 +120,9 @@ else if (guess === secreateNumber){
 
 document.querySelector('.again').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = "#222";
-   displayMessage("Start guessing...");
+    displayMessage("Start guessing...");
+
+    // document.querySelector('.message').textContent = "Start guessing...";
 
     document.querySelector('.number').style.width = '15rem';
 

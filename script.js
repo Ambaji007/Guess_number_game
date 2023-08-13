@@ -38,7 +38,7 @@ document.querySelector('.check').addEventListener('click', function () {
 
 //when there is no input 
 if(!guess){
-    document.querySelector('.message').textContent = "Guess the right num..."
+    displayMessage( "Guess the right num...");
 
 }
 //when  player wins...

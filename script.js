@@ -22,6 +22,10 @@ let score = 25;
 //taking random number and we changed to round number like 3.1111 to 3
 const secreateNumber = Math.trunc(Math.random() * 50)+1;
 
+const displayMessage = function(message) {
+  document.querySelector('.message').textContent =message
+}
+
 
 
 
@@ -39,7 +43,7 @@ if(!guess){
 }
 //when  player wins...
 else if (guess === secreateNumber){
-    document.querySelector('.message').textContent = "Give me a party 🎉🎉🎉🎉🎉🎉🎂🎂";
+    displayMessage("Give me a party 🎉🎉🎉🎉🎉🎉🎂🎂") ;
 
     document.querySelector('.number').textContent = secreateNumber;
 
@@ -50,32 +54,49 @@ else if (guess === secreateNumber){
     document.querySelector('.highscore').textContent = score
 
 }
-//when guess is too high
-else if(guess > secreateNumber){
 
-    if(score >0){
-        document.querySelector('.message').textContent=  "TOO High📈📈📈📈";
+//when guess is Wrong
+  else if(guess !== secreateNumber){
+      if(score >0){
+
+        //We use ternery opration
+        document.querySelector('.message').textContent = guess > secreateNumber ?  "TOO High📈📈📈📈" : 'Too Low📉📉📉;
         score--
         document.querySelector('.score').textContent =  score
     }else {
         document.querySelector('.message').textContent=  "You Loose the Game Try Again👍👍👍";
         document.querySelector('.score').textContent =  0
     }
+  }
+  
+
+  
+//when guess is too high
+// else if(guess > secreateNumber){
+
+//     if(score >0){
+//         document.querySelector('.message').textContent=  "TOO High📈📈📈📈";
+//         score--
+//         document.querySelector('.score').textContent =  score
+//     }else {
+//         document.querySelector('.message').textContent=  "You Loose the Game Try Again👍👍👍";
+//         document.querySelector('.score').textContent =  0
+//     }
    
-}
+// }
 //when guess is too loww
-else if (guess < secreateNumber){
-    if(score >0){
-        document.querySelector('.message').textContent = 'Too Low📉📉📉📉';
-        score--
-        document.querySelector('.score').textContent =  score
-    }else{
-        document.querySelector('.message') .textContent = "You Loose the Game Try Again👍👍👍";
-        document.querySelector('.score').textContent =  0
-    }
+// else if (guess < secreateNumber){
+//     if(score >0){
+//         document.querySelector('.message').textContent = 'Too Low📉📉📉📉';
+//         score--
+//         document.querySelector('.score').textContent =  score
+//     }else{
+//         document.querySelector('.message') .textContent = "You Loose the Game Try Again👍👍👍";
+//         document.querySelector('.score').textContent =  0
+//     }
    
-}
-});
+// }
+//});
 
 
 

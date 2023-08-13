@@ -96,7 +96,7 @@ else if (guess === secreateNumber){
 //     }
    
 // }
-//});
+});
 
 
 

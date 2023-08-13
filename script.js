@@ -23,7 +23,7 @@ let score = 25;
 const secreateNumber = Math.trunc(Math.random() * 50)+1;
 
 const displayMessage = function(message) {
-  document.querySelector('.message').textContent =message
+  document.querySelector('.message').textContent =message;
 }
 
 
@@ -64,7 +64,7 @@ else if (guess === secreateNumber){
         score--
         document.querySelector('.score').textContent =  score
     }else {
-        document.querySelector('.message').textContent=  "You Loose the Game Try Again👍👍👍";
+        displayMessage("You Loose the Game Try Again👍👍👍");
         document.querySelector('.score').textContent =  0
     }
   }

@@ -60,7 +60,7 @@ else if (guess === secreateNumber){
       if(score >0){
 
         //We use ternery opration
-        document.querySelector('.message').textContent = guess > secreateNumber ?  "TOO High📈📈📈📈" : 'Too Low📉📉📉;
+        displayMessage(guess > secreateNumber ?  "TOO High📈📈📈📈" : 'Too Low📉📉📉);
         score--
         document.querySelector('.score').textContent =  score
     }else {
@@ -108,7 +108,7 @@ else if (guess === secreateNumber){
 
 document.querySelector('.again').addEventListener('click', function () {
     document.querySelector('body').style.backgroundColor = "#222";
-    document.querySelector('.message').textContent = "Start guessing...";
+   displayMessage("Start guessing...");
 
     document.querySelector('.number').style.width = '15rem';
 
